@@ -1,0 +1,12 @@
+{% extends 'catalogue/base.html' %}
+{% block content %}
+	<h2 class="alert-success"> {{ sample.name}} - {{ sample.barcode}}</h2>
+	<table  class="table table-striped table-bordered table-hover table-responsive">
+		<tr><th>Parameter</th>	<th>Data</th></tr>
+		<tr><td>Project</td>	<td>{{ sample.project}}</td></tr>
+		</table>
+			<a href="/admin/catalogue/sample/
+			{{ sample.id }}
+			/change/"><button class="btn btn-info">Edit #{{ sample.id }}</button></a>
+
+{% endblock %}
