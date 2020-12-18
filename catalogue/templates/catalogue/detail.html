@@ -1,12 +1,22 @@
 {% extends 'catalogue/base.html' %}
 {% block content %}
-	<h2 class="alert-success"> {{ sample.name}} - {{ sample.barcode}}</h2>
+	<h2 class="alert-success"> Sample {{ sample.name}}</h2>
 	<table  class="table table-striped table-bordered table-hover table-responsive">
-		<tr><th>Parameter</th>	<th>Data</th></tr>
+		<tr><th>Parameter</th><th>Data</th></tr>
+		<tr><td>Barcode</td>	<td>{{ sample.barcode}}</td></tr>
 		<tr><td>Project</td>	<td>{{ sample.project}}</td></tr>
+		<tr><td>Amount</td>	<td>{{ sample.amount}}</td></tr>
+		<tr><td>Amount Free</td>	<td>{{ sample.amount_free}}</td></tr>
+		<tr><td>Location</td>	<td>{{ sample.shelf}}</td></tr>
+		<tr><td>Characterisation</td>	<td>{{ sample.characterisation}}</td></tr>
+		<tr><td>Date</td>	<td>{{ sample.date}}</td></tr>
+		<tr><td>Method</td>	<td>{{ sample.method}}</td></tr>
+		<tr><td>Handle inert</td>	<td>{{ sample.inert_handling}}</td></tr>
+		<tr><td>Container</td>	<td>{{ sample.container}}</td></tr>
 		</table>
+		* Some fields are missing until we have agreed upon database structure. Try click Edit Sample...<br />
 			<a href="/admin/catalogue/sample/
 			{{ sample.id }}
-			/change/"><button class="btn btn-info">Edit #{{ sample.id }}</button></a>
+			/change/"><button class="btn btn-info">Edit Sample #{{ sample.id }}</button></a>
 
 {% endblock %}

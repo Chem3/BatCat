@@ -7,8 +7,16 @@ from django.db.models import Q
 
 # Create your views here.
 def list_objects(request):
-    sample_list = Method.objects.all()
-    return render(request, 'catalogue/list.html', {'sample': sample_list })
+    sample_list = Sample.objects.order_by('-amount')[:5]
+    labels = []
+    data = []
+    for sample in sample_list:
+        labels.append(sample.name)
+        data.append(sample.amount)
+
+    return render(request, 'catalogue/list.html', {'samples': sample_list,
+                                                   'data': data, 'labels': labels
+                                                   })
 
 
 def detail(request, pk):
